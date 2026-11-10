@@ -1,0 +1,201 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 25px 15px;
+    color: #333;
+}
+
+.game-container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 34px;
+    color: #5745a5;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.players {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.player {
+    flex: 1;
+    padding: 18px;
+    border: 3px solid #eee;
+    border-radius: 15px;
+    background: #f8f8fc;
+    transition: 0.2s;
+}
+
+.player.active {
+    border-color: #7560d9;
+    background: #efecff;
+    transform: translateY(-3px);
+}
+
+.player h2 {
+    font-size: 19px;
+}
+
+.score {
+    font-size: 35px;
+    font-weight: bold;
+    color: #6651c5;
+    margin: 8px 0;
+}
+
+.player p {
+    font-size: 13px;
+    color: #888;
+}
+
+.game-info {
+    margin-bottom: 22px;
+}
+
+.game-info h3 {
+    color: #5745a5;
+    margin-bottom: 7px;
+}
+
+.game-info p {
+    color: #777;
+    font-size: 14px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.card {
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 13px;
+    background: #7460d6;
+    color: white;
+    font-size: clamp(24px, 6vw, 42px);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover:not(:disabled) {
+    transform: scale(1.04);
+    background: #5c48bb;
+}
+
+.card.flipped {
+    background: #f0edff;
+    color: #333;
+    border: 2px solid #7460d6;
+}
+
+.card.matched {
+    background: #d7f8e4;
+    border: 2px solid #39b96b;
+    color: #22844a;
+    cursor: default;
+}
+
+.card:disabled {
+    cursor: default;
+}
+
+.game-controls {
+    margin-top: 25px;
+}
+
+button#restartButton,
+#winnerMessage button {
+    background: #6651c5;
+    color: white;
+    border: none;
+    padding: 13px 28px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button#restartButton:hover,
+#winnerMessage button:hover {
+    background: #4f3ca9;
+}
+
+.winner-message {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 15px;
+    background: #f0edff;
+}
+
+.winner-message h2 {
+    color: #5745a5;
+    margin-bottom: 10px;
+}
+
+.winner-message p {
+    margin-bottom: 18px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 500px) {
+    .game-container {
+        padding: 20px 12px;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    .players {
+        gap: 8px;
+    }
+
+    .player {
+        padding: 12px 5px;
+    }
+
+    .player h2 {
+        font-size: 16px;
+    }
+
+    .game-board {
+        gap: 8px;
+    }
+
+    .card {
+        border-radius: 9px;
+    }
+}
